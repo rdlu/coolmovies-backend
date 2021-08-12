@@ -51,10 +51,15 @@ create table movies
 
 alter table movies owner to postgres;
 
+create unique index if not exists movie_director_id_uindex
+	on movie_directors (id);
+
 -- MOVIE REVIEWS
 create table movie_reviews
 (
-	id uuid default gen_random_uuid() not null,
+	id uuid default gen_random_uuid() not null
+		constraint movie_reviews_pk
+			primary key,
 	title varchar not null,
 	body text,
 	rating integer,
@@ -70,14 +75,8 @@ create table movie_reviews
 
 alter table movie_reviews owner to postgres;
 
-create unique index movie_review_id_uindex
-	on movie_reviews (id);
-
-
-alter table movie_reviews owner to postgres;
-
 create unique index if not exists movie_review_id_uindex
-	on movie_reviews (id);
+    on movie_reviews (id);
 
 -- COMMENTS
 create table if not exists comments
