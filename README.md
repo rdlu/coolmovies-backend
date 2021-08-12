@@ -35,6 +35,11 @@ https://www.graphile.org/postgraphile/crud-mutations/
 Also you can use GraphiQL Explorer by accessing your local server:
 http://localhost:5000/graphiql
 
+## Requests examples
+
+You can use https://insomnia.rest to import the Insomnia_Collection.json file.
+It has some requests examples with filtering, mutations, etc.
+
 ## Reinitializing the database with seed data
 
 Go to your project directory using your preferred terminal, then
@@ -47,4 +52,3 @@ Go to your project directory using your preferred terminal, then
 If you want also to rebuild the Postgraphile Server, run this before the `up` command.
 
     docker rmi coolmovies-graphql:latest
-    
