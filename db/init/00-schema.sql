@@ -97,3 +97,18 @@ create table if not exists comments
 );
 
 alter table comments owner to postgres;
+
+-- FAKE CURRENT USER
+create function "current_user"() returns users
+    stable
+    SET search_path = "$user", public
+    language sql
+as
+$$
+select *
+  from users
+  order by name
+  limit 1;
+$$;
+
+alter function "current_user"() owner to postgres;
