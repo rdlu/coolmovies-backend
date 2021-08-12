@@ -52,7 +52,7 @@ create table movies
 alter table movies owner to postgres;
 
 -- MOVIE REVIEWS
-create table if not exists movie_reviews
+create table movie_reviews
 (
 	id uuid default gen_random_uuid() not null,
 	title varchar not null,
@@ -61,8 +61,18 @@ create table if not exists movie_reviews
 	movie_id uuid not null
 		constraint movie_reviews_movies_id_fk
 			references movies
+				on update cascade on delete cascade,
+	user_reviewer_id uuid not null
+		constraint movie_reviews_users_id_fk
+			references users
 				on update cascade on delete cascade
 );
+
+alter table movie_reviews owner to postgres;
+
+create unique index movie_review_id_uindex
+	on movie_reviews (id);
+
 
 alter table movie_reviews owner to postgres;
 
