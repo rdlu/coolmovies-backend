@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-12T03:30:50.355Z",
+  "__export_date": "2021-08-12T21:10:30.400Z",
   "__export_source": "insomnia.desktop.app:v2021.4.1",
   "resources": [
     {
       "_id": "req_466cff9ba56a41ba84fa457a9c7b857d",
       "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
-      "modified": 1628737408787,
+      "modified": 1628800709063,
       "created": 1628633892217,
       "url": "{{ _.schema }}://{{ _.url }}",
       "name": "allComments with relationships",
@@ -79,9 +79,41 @@
       "_type": "request"
     },
     {
+      "_id": "req_5c4a36604e754d07951bb77d15d1d581",
+      "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
+      "modified": 1628800615367,
+      "created": 1628800241424,
+      "url": "{{ _.schema }}://{{ _.url }}",
+      "name": "createMovieReview",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation {\\n  createMovieReview(input: {\\n    movieReview: {\\n      title: \\\"Test\\\",\\n      body: \\\"Lorem Ipsum Text\\\",\\n      rating: 4,\\n      movieId: \\\"70351289-8756-4101-bf9a-37fc8c7a82cd\\\",\\n      userReviewerId: \\\"5f1e6707-7c3a-4acd-b11f-fd96096abd5a\\\"\\n    }})\\n  {\\n    movieReview {\\n      id\\n      title\\n      body\\n      rating\\n      movieByMovieId {\\n        title\\n      }\\n      userByUserReviewerId {\\n        name\\n      }\\n    }\\n  }\\n}\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_297a6f0fa4544864ad82c93891e7d56b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1628245992300.6875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_5779cb3e325e43e3b9ec9b025eb1430a",
       "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
-      "modified": 1628737428833,
+      "modified": 1628802379433,
       "created": 1628732636036,
       "url": "{{ _.schema }}://{{ _.url }}",
       "name": "createComment",
@@ -111,9 +143,41 @@
       "_type": "request"
     },
     {
+      "_id": "req_d1d2ceca9aaf4610b9807311d5318182",
+      "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
+      "modified": 1628802414899,
+      "created": 1628802384234,
+      "url": "{{ _.schema }}://{{ _.url }}",
+      "name": "currentUser",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query {\\n  currentUser {\\n    id\\n    name\\n  }\\n}\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_297a6f0fa4544864ad82c93891e7d56b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1628181342314.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_c054ca5d99484ae58cd48b096bb16554",
       "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
-      "modified": 1628737401801,
+      "modified": 1628801122844,
       "created": 1628634721557,
       "url": "{{ _.schema }}://{{ _.url }}",
       "name": "allUsers",
@@ -133,6 +197,38 @@
       ],
       "authentication": {},
       "metaSortKey": -1628116692328.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_24ceaf3d08f74a14b406e33556a272cc",
+      "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
+      "modified": 1628802615499,
+      "created": 1628801135462,
+      "url": "{{ _.schema }}://{{ _.url }}",
+      "name": "movieReviewbyId",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"query {\\n  movieReviewById(id: \\\"e8edc53a-29cf-4470-8351-ed22cc144a3f\\\") {\\n    body\\n    id\\n    movieByMovieId {\\n      id\\n      releaseDate\\n      title\\n      movieDirectorByMovieDirectorId {\\n        age\\n        id\\n        name\\n      }\\n    }\\n    rating\\n    nodeId\\n    title\\n    userByUserReviewerId {\\n      name\\n      id\\n    }\\n  }\\n}\\n\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_297a6f0fa4544864ad82c93891e7d56b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1628073592337.4375,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -177,7 +273,7 @@
     {
       "_id": "req_da38d2e3358e4a7c96ac3efefb6aaed1",
       "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
-      "modified": 1628738968498,
+      "modified": 1628799231401,
       "created": 1628737971087,
       "url": "{{ _.schema }}://{{ _.url }}",
       "name": "allMovieReviews by Movie",
@@ -197,6 +293,38 @@
       ],
       "authentication": {},
       "metaSortKey": -1627987392355.8125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3ba633c84fcb4e1d997c470507799e61",
+      "parentId": "wrk_e48dbb76f6524ddc8ac8157a317e24c9",
+      "modified": 1628801122686,
+      "created": 1628800633814,
+      "url": "{{ _.schema }}://{{ _.url }}",
+      "name": "deleteComment",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/graphql",
+        "text": "{\"query\":\"mutation {\\n  deleteCommentById(input: {id: \\\"dc85b747-3e55-460a-8413-f2d562540904\\\"}) {\\n    deletedCommentId\\n  }\\n}\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_297a6f0fa4544864ad82c93891e7d56b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1627987392305.8125,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
